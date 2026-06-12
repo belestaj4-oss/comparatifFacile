@@ -145,7 +145,7 @@
 // Colonnes attendues : article, categorie, rang, nom, image,
 // prix, lien_amazon, points_forts, points_faibles, note
 // ============================================================
-var CSV_URL = "https://docs.google.com/spreadsheets/d/1_rYlFT6v-fwM0aPlXzXG1YfMjY7lbhNZQZB4RGoG7zs/export?format=csv&gid=119414745";
+var CSV_URL = "https://docs.google.com/spreadsheets/d/1_rYlFT6v-fwM0aPlXzXG1YfMjY7lbhNZQZB4RGoG7zs/gviz/tq?tqx=out:csv&gid=119414745";
 
 // Liste de tous les articles (pour la nav "autres comparatifs")
 var ALL_ARTICLES = [
@@ -285,7 +285,8 @@ if(CSV_URL && CSV_URL.indexOf("http") === 0 && typeof Papa !== "undefined"){
         init(FALLBACK_DATA);
       }
     },
-    error: function(){
+    error: function(err){
+      console.error("Erreur chargement Google Sheet:", err);
       init(FALLBACK_DATA);
     }
   });

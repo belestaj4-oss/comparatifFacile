@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ComparatifFacile — Meilleurs produits 2026, avis et prix</title>
+  <meta name="description" content="Comparatifs indépendants des meilleurs produits 2026 : sport, santé, maison, bébé, mobilité, high-tech. Avis, points forts/faibles et meilleur prix."/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3510146937713283" crossorigin="anonymous"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#f0f2f5;font-family:'Segoe UI',Arial,sans-serif;color:#2d3436;min-height:100vh;}
+    ::-webkit-scrollbar{width:5px;}
+    ::-webkit-scrollbar-thumb{background:#dfe6e9;border-radius:3px;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    header{background:#fff;border-bottom:1px solid #e9ecef;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+    .logo{font-size:18px;font-weight:800;color:#2d3436;}
+    .logo span{color:#00b894;}
+    .badge{font-size:11px;background:rgba(0,184,148,0.1);color:#00b894;border-radius:20px;padding:4px 11px;font-weight:700;}
+
+    main{max-width:780px;margin:0 auto;padding:28px 16px 80px;}
+
+    .hero{text-align:center;margin-bottom:30px;animation:fadeIn 0.4s ease;}
+    .hero h1{font-size:clamp(26px,7vw,38px);font-weight:800;margin-bottom:10px;line-height:1.2;}
+    .hero p{font-size:14px;color:#636e72;max-width:520px;margin:0 auto;line-height:1.6;}
+
+    .ad-slot{background:#fff;border:1px dashed #dfe6e9;border-radius:12px;padding:14px;text-align:center;font-size:11px;color:#b2bec3;margin-bottom:20px;min-height:60px;display:flex;align-items:center;justify-content:center;}
+
+    .cat-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;justify-content:center;}
+    .cat-btn{padding:8px 16px;border-radius:20px;border:1.5px solid #e9ecef;background:#fff;color:#636e72;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.2s;}
+    .cat-btn.active{background:#00b894;border-color:#00b894;color:#fff;}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .article-card{background:#fff;border-radius:14px;padding:18px;text-decoration:none;color:#2d3436;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:all 0.2s;display:flex;flex-direction:column;gap:8px;animation:fadeIn 0.4s ease;}
+    .article-card:active{transform:scale(0.98);}
+    .article-card .emoji{font-size:26px;}
+    .article-card .titre{font-size:14px;font-weight:800;line-height:1.35;}
+    .article-card .cat-tag{font-size:10px;color:#00b894;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;}
+    .article-card .nb{font-size:11px;color:#b2bec3;margin-top:auto;}
+
+    .mention{background:#fff;border-radius:12px;padding:14px 16px;font-size:11px;color:#b2bec3;line-height:1.6;margin-top:24px;text-align:center;}
+    footer{text-align:center;padding:20px;font-size:11px;color:#b2bec3;background:#fff;border-top:1px solid #f0f2f5;margin-top:20px;}
+
+    @media(max-width:480px){
+      .grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🛒 Comparatif<span>Facile</span></div>
+  <span class="badge">Avis & Prix 2026</span>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Les meilleurs produits 2026, comparés pour vous</h1>
+    <p>21 comparatifs indépendants sur les produits les plus recherchés : sport, santé, maison, bébé, mobilité et high-tech. Avis, avantages, inconvénients et meilleur prix actuel sur Amazon.</p>
+  </div>
+
+  <div class="ad-slot">Espace publicitaire</div>
+
+  <div class="cat-filters" id="catFilters">
+    <button class="cat-btn active" data-cat="all">Tous</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="ad-slot" style="margin-top:20px;">Espace publicitaire</div>
+
+  <div class="mention">
+    En tant que Partenaire Amazon, ce site réalise un bénéfice sur les achats remplissant les conditions requises. Les prix affichés sont indicatifs — le prix exact est toujours visible sur Amazon avant achat.
+  </div>
+</main>
+
+<footer>ComparatifFacile — Comparatifs indépendants · Sport, Santé, Maison, Bébé, Mobilité, High-tech</footer>
+
+<script>
+var EMOJIS = {
+  "Sport":"🏃","Santé":"⚖️","Maison":"🏠","Bébé":"🍼","Mobilité":"🛴","Tech":"🎧"
+};
+
+// Liste des 21 comparatifs — doit correspondre aux "article" du Google Sheet
+var ARTICLES = [
+ {titre:"Meilleures montres cardio GPS",cat:"Sport",nb:3},
+ {titre:"Meilleures balances connectées",cat:"Santé",nb:3},
+ {titre:"Meilleurs tapis de course pliables",cat:"Sport",nb:3},
+ {titre:"Meilleurs robots aspirateurs laveurs",cat:"Maison",nb:3},
+ {titre:"Meilleures frites sans huile (airfryer)",cat:"Maison",nb:3},
+ {titre:"Meilleurs purificateurs d'air",cat:"Maison",nb:3},
+ {titre:"Meilleures brosses à dents électriques",cat:"Santé",nb:3},
+ {titre:"Meilleurs casques audio sans fil",cat:"Tech",nb:3},
+ {titre:"Meilleures trottinettes électriques",cat:"Mobilité",nb:3},
+ {titre:"Meilleurs vélos électriques",cat:"Mobilité",nb:3},
+ {titre:"Meilleurs babyphones vidéo",cat:"Bébé",nb:3},
+ {titre:"Meilleurs sièges auto bébé",cat:"Bébé",nb:3},
+ {titre:"Meilleures poussettes 3 en 1",cat:"Bébé",nb:3},
+ {titre:"Meilleurs thermomètres bébé",cat:"Bébé",nb:3},
+ {titre:"Meilleurs humidificateurs d'air",cat:"Maison",nb:3},
+ {titre:"Meilleurs ventilateurs sur pied",cat:"Maison",nb:3},
+ {titre:"Meilleures couettes 4 saisons",cat:"Maison",nb:3},
+ {titre:"Meilleurs oreillers cervicaux",cat:"Santé",nb:3},
+ {titre:"Meilleurs tensiomètres bras",cat:"Santé",nb:3},
+ {titre:"Meilleurs vélos d'appartement",cat:"Sport",nb:3},
+ {titre:"Meilleurs matelas mémoire de forme",cat:"Maison",nb:3},
+];
+
+function slugify(s){
+  return s.toLowerCase()
+    .replace(/[éèêë]/g,"e").replace(/[àâ]/g,"a").replace(/[ôö]/g,"o")
+    .replace(/[ùû]/g,"u").replace(/[ç]/g,"c").replace(/[îï]/g,"i")
+    .replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
+}
+
+function render(filter){
+  var grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  ARTICLES.forEach(function(a){
+    if(filter !== "all" && a.cat !== filter) return;
+    var card = document.createElement("a");
+    card.className = "article-card";
+    card.href = "comparatif.html?article="+encodeURIComponent(a.titre);
+    card.innerHTML =
+      '<div class="emoji">'+(EMOJIS[a.cat]||"⭐")+'</div>'+
+      '<div class="titre">'+a.titre+'</div>'+
+      '<div class="cat-tag">'+a.cat+'</div>'+
+      '<div class="nb">Top '+a.nb+' produits comparés</div>';
+    grid.appendChild(card);
+  });
+}
+
+// Filtres catégories
+var cats = [];
+ARTICLES.forEach(function(a){ if(cats.indexOf(a.cat)===-1) cats.push(a.cat); });
+var fw = document.getElementById("catFilters");
+cats.forEach(function(c){
+  var b = document.createElement("button");
+  b.className = "cat-btn";
+  b.dataset.cat = c;
+  b.textContent = (EMOJIS[c]||"")+" "+c;
+  b.onclick = function(){
+    document.querySelectorAll(".cat-btn").forEach(function(x){x.classList.remove("active");});
+    b.classList.add("active");
+    render(c);
+  };
+  fw.appendChild(b);
+});
+fw.querySelector('[data-cat="all"]').onclick = function(){
+  document.querySelectorAll(".cat-btn").forEach(function(x){x.classList.remove("active");});
+  this.classList.add("active");
+  render("all");
+};
+
+render("all");
+</script>
+</body>
+</html>

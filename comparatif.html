@@ -276,6 +276,8 @@ if(CSV_URL && CSV_URL.indexOf("http") === 0 && typeof Papa !== "undefined"){
     download: true,
     header: true,
     skipEmptyLines: true,
+    transformHeader: function(h){ return h.replace(/^\uFEFF/, "").trim(); },
+    transform: function(v){ return typeof v === "string" ? v.trim() : v; },
     complete: function(results){
       if(results.data && results.data.length){
         init(results.data);

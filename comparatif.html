@@ -5,8 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title id="pageTitle">Comparatif — Meilleurs produits 2026</title>
   <meta name="description" content="Comparatif indépendant : avis, points forts/faibles et meilleur prix Amazon."/>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3510146937713283" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script>
+  if (location.protocol !== "file:") {
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3510146937713283";
+    s.crossOrigin = "anonymous";
+    document.head.appendChild(s);
+  }
+</script>
+  <script>
+  if (location.protocol !== "file:") {
+    var p = document.createElement("script");
+    p.src = "https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js";
+    document.head.appendChild(p);
+  }
+</script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{background:#f0f2f5;font-family:'Segoe UI',Arial,sans-serif;color:#2d3436;min-height:100vh;}
@@ -131,7 +145,7 @@
 // Colonnes attendues : article, categorie, rang, nom, image,
 // prix, lien_amazon, points_forts, points_faibles, note
 // ============================================================
-var CSV_URL = "REMPLACE_PAR_TON_LIEN_GOOGLE_SHEET_CSV";
+var CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQaiToN8PXIPs_qBfGUbwoAxL_R4RZfoqbZhpRZsQnirtX3jjXxcLDQ487WPdJXpArLZVcPENic2zk_/pub?gid=119414745&single=true&output=csv";
 
 // Liste de tous les articles (pour la nav "autres comparatifs")
 var ALL_ARTICLES = [
@@ -257,7 +271,7 @@ function init(products){
   renderOtherArticles(artInfo.titre);
 }
 
-if(CSV_URL && CSV_URL.indexOf("http") === 0){
+if(CSV_URL && CSV_URL.indexOf("http") === 0 && typeof Papa !== "undefined"){
   Papa.parse(CSV_URL, {
     download: true,
     header: true,
